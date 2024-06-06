@@ -20,14 +20,14 @@ include_once "conexao.php";
         </header>
         <nav>
             <ul>
-                <li><a href="#">Principal</a></li>
-                <li><a href="#">Todas as Noticias</a></li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Area Restrita</a></li>
+                <li><a href="index.php">Principal</a></li>
+                <li><a href="todas.php">Todas as Noticias</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
+                <li><a href="contato.php">Contato</a></li>
+                <li><a href="area.php">Area Restrita</a></li>
             </ul>
         </nav>
-        <main>
+        <main id ="main-index">
             <?php 
                 $sql = "SELECT * FROM tb_noticia ORDER BY RAND() LIMIT 6;";
                 $resultado = mysqli_execute_query($conexao, $sql);

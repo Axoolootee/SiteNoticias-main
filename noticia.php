@@ -27,7 +27,7 @@ include_once "conexao.php";
                 <li><a href="#">Area Restrita</a></li>
             </ul>
         </nav>
-        <main>
+        <main id="main-padrao">
             <?php 
                 $id_noticia = @$_GET['id_noticia'];
                 if($id_noticia)
@@ -35,11 +35,12 @@ include_once "conexao.php";
                     $sql = "SELECT * FROM tb_noticia WHERE id_noticia = $id_noticia;";
                     $resultado = mysqli_execute_query($conexao, $sql);
                     $dados = mysqli_fetch_array($resultado);
-                    echo "titulo: ".$dados['titulo'].'<br>';
-                    echo "data e hora: ".$dados['datahora'].'<br>';
-                    echo "imagem: ".$dados['imagem'].'<br>';
+                    echo "<p class='titulo'>".$dados['titulo'].'</p>';
+                    echo "<p class='data e hora'>".$dados['datahora'].'<br>';
+                    echo "imagem: <img src='img/".$dados['imagem']."' width='200'><br>";
                     echo "fonte: ".$dados['fonte'].'<br>';
-                    echo "autor: ".$dados['autor'].'<br>';
+                    echo "autor: ".$dados['autor'].'</p>';
+                    //echo "<p class='titulo'>" <img src="img/".$dados['imagem'].
                     echo "noticia: ".$dados['noticia'].'<br>';
                 }else{
                     echo 'nao tem conteudo';
